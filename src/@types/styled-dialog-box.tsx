@@ -15,7 +15,9 @@ export interface StyledDialogProps
   bottomDialogContent?: React.ReactNode;
 }
 
-export const DIALOG_BOX_SIZE_SMALL = "sm";
-export const DIALOG_BOX_SIZE_MEDIUM = "md";
-export const DIALOG_BOX_SIZE_LARGE = "lg";
-export const DIALOG_BOX_SIZE_XLARGE = "xl";
+export enum DIALOG_BOX_SIZE {
+  SMALL = "sm",
+  MEDIUM = "md",
+  LARGE = "lg",
+  XLARGE = "xl",
+}
