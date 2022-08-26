@@ -5,11 +5,19 @@ const Home = () => {
 
   const menu = [
     {
-      label: "Create Product",
+      label: "Home",
       onClick: () => {},
     },
     {
-      label: "Logout",
+      label: "Experience",
+      onClick: () => {},
+    },
+    {
+      label: "Projects",
+      onClick: () => {},
+    },
+    {
+      label: "Education",
       onClick: () => {},
     },
   ];

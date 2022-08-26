@@ -8,28 +8,26 @@ import React from "react";
 import "./App.css";
 import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
 import { Home } from "./pages";
-import { defaultTheme } from "./themes";
+import { darkTheme, defaultTheme, lightTheme } from "./themes";
 
 function AppWithColorMode() {
   const { mode } = useColorMode();
-  const themeWithColorMode = React.useMemo(
+  const theme = React.useMemo(
     () =>
-      createTheme(defaultTheme, {
-        palette: {
-          mode: mode as PaletteMode,
-        },
+      createTheme({
+        ...defaultTheme,
+        ...(mode === "light" ? lightTheme : darkTheme),
       }),
     [mode]
   );
 
   // update background color when theme changes
   React.useEffect(() => {
-    document.body.style.backgroundColor =
-      themeWithColorMode.palette.background.default;
-  }, [themeWithColorMode]);
+    document.body.style.backgroundColor = theme.palette.background.default;
+  }, [theme]);
 
   return (
-    <ThemeProvider theme={themeWithColorMode}>
+    <ThemeProvider theme={theme}>
       <Home />
     </ThemeProvider>
   );

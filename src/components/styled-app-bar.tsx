@@ -12,6 +12,8 @@ import { SxProps, Theme, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { useColorMode } from "../contexts/color-mode";
+import StyledColorModeSwitch from "./styled-color-mode-switch";
 
 interface Menu {
   label: string;
@@ -26,6 +28,7 @@ interface AppBarProps extends React.PropsWithChildren {
 
 const StyledAppBar = (props: AppBarProps) => {
   const theme = useTheme();
+  const { mode, toggleColorMode } = useColorMode();
   const { title, menu, sx, children } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -67,12 +70,20 @@ const StyledAppBar = (props: AppBarProps) => {
             {menu.map((item, index) => (
               <Button
                 key={item.label}
-                sx={{ ...(index > 0 ? { marginLeft: theme.spacing(2) } : {}) }}
+                sx={{
+                  ...(index > 0 ? { marginLeft: theme.spacing(2) } : {}),
+                  color: theme.palette.text.primary,
+                }}
                 onClick={item.onClick}
               >
                 {item.label}
               </Button>
             ))}
+            <StyledColorModeSwitch
+              sx={{ m: 1 }}
+              checked={mode === "dark"}
+              onChange={toggleColorMode}
+            />
           </Box>
         </Toolbar>
       </AppBar>
@@ -107,6 +118,22 @@ const StyledAppBar = (props: AppBarProps) => {
                   </ListItemButton>
                 </ListItem>
               ))}
+              <ListItem key="styled-color-mode-switch" disablePadding>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
+                  <StyledColorModeSwitch
+                    sx={{ m: 1 }}
+                    checked={mode === "dark"}
+                    onChange={toggleColorMode}
+                  />
+                </Box>
+              </ListItem>
             </List>
           </Box>
         </Drawer>
