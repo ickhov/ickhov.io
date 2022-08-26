@@ -1,4 +1,3 @@
-import { PaletteMode } from "@mui/material";
 import {
   createTheme,
   StyledEngineProvider,
@@ -7,7 +6,7 @@ import {
 import React from "react";
 import "./App.css";
 import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
-import { Home } from "./pages";
+import Main from "./pages";
 import { darkTheme, defaultTheme, lightTheme } from "./themes";
 
 function AppWithColorMode() {
@@ -28,7 +27,7 @@ function AppWithColorMode() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <Main />
     </ThemeProvider>
   );
 }

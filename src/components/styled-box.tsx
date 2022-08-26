@@ -2,17 +2,13 @@ import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 
 const StyledBox = styled(Box)(({ theme }) => ({
+  boxSizing: "border-box",
+  width: "1200px",
+  maxWidth: "100%",
+  padding: theme.spacing(3),
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
-  width: "100vw",
-  padding: "16px 23%",
-  [theme.breakpoints.down("xl")]: {
-    padding: "16px 20%",
-  },
-  [theme.breakpoints.down("lg")]: {
-    padding: "16px 10%",
-  },
+  flex: "1 0",
 }));
 
 export default StyledBox;

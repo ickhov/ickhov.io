@@ -37,20 +37,33 @@ const StyledAppBar = (props: AppBarProps) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box
+      sx={{
+        display: "flex",
+      }}
+    >
       <AppBar
         component="nav"
         sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           backgroundColor: theme.palette.background.paper,
           ...(mobileOpen ? { boxShadow: "none" } : {}),
         }}
       >
-        <Toolbar>
+        <Toolbar
+          sx={{
+            ...(!mobileOpen
+              ? { boxSizing: "border-box", width: "1200px", maxWidth: "100%" }
+              : {}),
+          }}
+        >
           <IconButton
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ marginRight: theme.spacing(2), display: { sm: "none" } }}
+            sx={{ marginRight: theme.spacing(2), display: { md: "none" } }}
           >
             <MenuIcon sx={{ color: theme.palette.text.primary }} />
           </IconButton>
@@ -66,14 +79,11 @@ const StyledAppBar = (props: AppBarProps) => {
               {title}
             </Typography>
           </Box>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {menu.map((item, index) => (
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
+            {menu.map((item) => (
               <Button
                 key={item.label}
-                sx={{
-                  ...(index > 0 ? { marginLeft: theme.spacing(2) } : {}),
-                  color: theme.palette.text.primary,
-                }}
+                sx={{ color: theme.palette.text.primary }}
                 onClick={item.onClick}
               >
                 {item.label}
@@ -97,7 +107,7 @@ const StyledAppBar = (props: AppBarProps) => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               maxWidth: "100%",
@@ -148,7 +158,7 @@ const StyledAppBar = (props: AppBarProps) => {
         <Toolbar />
         <Box
           sx={{
-            height: { xs: "calc(100% - 56px)", sm: "calc(100% - 64px)" },
+            height: { xs: "calc(100% - 56px)", md: "calc(100% - 64px)" },
             ...sx,
           }}
         >
