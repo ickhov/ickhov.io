@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { PaletteMode } from "@mui/material";
+import {
+  createTheme,
+  StyledEngineProvider,
+  ThemeProvider,
+} from "@mui/material/styles";
+import React from "react";
+import "./App.css";
+import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
+import { Home } from "./pages";
+import { defaultTheme } from "./themes";
 
-function App() {
+function AppWithColorMode() {
+  const { mode } = useColorMode();
+  const themeWithColorMode = React.useMemo(
+    () =>
+      createTheme(defaultTheme, {
+        palette: {
+          mode: mode as PaletteMode,
+        },
+      }),
+    [mode]
+  );
+
+  // update background color when theme changes
+  React.useEffect(() => {
+    document.body.style.backgroundColor =
+      themeWithColorMode.palette.background.default;
+  }, [themeWithColorMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themeWithColorMode}>
+      <Home />
+    </ThemeProvider>
   );
 }
+
+const App = () => (
+  <StyledEngineProvider injectFirst>
+    <ColorModeProvider>
+      <AppWithColorMode />
+    </ColorModeProvider>
+  </StyledEngineProvider>
+);
 
 export default App;
