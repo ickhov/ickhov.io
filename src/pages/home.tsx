@@ -1,33 +1,11 @@
-import { StyledAppBar } from "../components";
-
+import { Box } from "@mui/material";
+import { StyledAppBar, StyledBox, StyledLayout } from "../components";
 
 const Home = () => {
-
-  const menu = [
-    {
-      label: "Home",
-      onClick: () => {},
-    },
-    {
-      label: "Experience",
-      onClick: () => {},
-    },
-    {
-      label: "Projects",
-      onClick: () => {},
-    },
-    {
-      label: "Education",
-      onClick: () => {},
-    },
-  ];
-
   return (
-    <StyledAppBar
-      title={"Iev Chhoung Khov"}
-      menu={menu}
-      sx={{ padding: (theme) => theme.spacing(3) }}
-    ></StyledAppBar>
+    <StyledLayout>
+      <StyledBox>Hello</StyledBox>
+    </StyledLayout>
   );
 };
 
