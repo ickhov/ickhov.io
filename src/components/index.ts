@@ -9,4 +9,3 @@ export { default as StyledSnackbar } from "./styled-snackbar";
 export { default as StyledSubtitle } from "./styled-subtitle";
 export { default as StyledTitle } from "./styled-title";
 export * from "./styled-dialog-box";
-export { default as StyledBox } from "./styled-box";

@@ -14,10 +14,12 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { useColorMode } from "../contexts/color-mode";
 import StyledColorModeSwitch from "./styled-color-mode-switch";
+import { Outlet } from "react-router-dom";
+import StyledLink from "./styled-link";
 
 interface Menu {
   label: string;
-  onClick: () => void;
+  dest: string;
 }
 
 interface AppBarProps extends React.PropsWithChildren {
@@ -29,7 +31,7 @@ interface AppBarProps extends React.PropsWithChildren {
 const StyledAppBar = (props: AppBarProps) => {
   const theme = useTheme();
   const { mode, toggleColorMode } = useColorMode();
-  const { title, menu, sx, children } = props;
+  const { title, menu, sx } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -83,13 +85,9 @@ const StyledAppBar = (props: AppBarProps) => {
           </Typography>
           <Box sx={{ display: { xs: "none", md: "block" } }}>
             {menu.map((item) => (
-              <Button
-                key={item.label}
-                sx={{ color: theme.palette.text.primary }}
-                onClick={item.onClick}
-              >
+              <StyledLink key={item.label} to={item.dest}>
                 {item.label}
-              </Button>
+              </StyledLink>
             ))}
             <StyledColorModeSwitch
               sx={{ m: 1 }}
@@ -122,12 +120,9 @@ const StyledAppBar = (props: AppBarProps) => {
             <List>
               {menu.map((item) => (
                 <ListItem key={item.label} disablePadding>
-                  <ListItemButton
-                    sx={{ textAlign: "center" }}
-                    onClick={item.onClick}
-                  >
-                    <ListItemText primary={item.label} />
-                  </ListItemButton>
+                  <StyledLink key={item.label} to={item.dest}>
+                    {item.label}
+                  </StyledLink>
                 </ListItem>
               ))}
               <ListItem key="styled-color-mode-switch" disablePadding>
@@ -165,7 +160,7 @@ const StyledAppBar = (props: AppBarProps) => {
             ...sx,
           }}
         >
-          {children}
+          <Outlet />
         </Box>
       </Box>
       <Box
