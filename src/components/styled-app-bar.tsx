@@ -60,9 +60,10 @@ const StyledAppBar = (props: AppBarProps) => {
       >
         <Toolbar
           sx={{
-            ...(!mobileOpen
-              ? { boxSizing: "border-box", width: "1200px", maxWidth: "100%" }
-              : {}),
+            boxSizing: "border-box",
+            ...(mobileOpen
+              ? { width: "100%" }
+              : { width: "1200px", maxWidth: "100%" }),
           }}
         >
           <IconButton
@@ -120,7 +121,15 @@ const StyledAppBar = (props: AppBarProps) => {
             <List>
               {menu.map((item) => (
                 <ListItem key={item.label} disablePadding>
-                  <StyledLink key={item.label} to={item.dest}>
+                  <StyledLink
+                    key={item.label}
+                    to={item.dest}
+                    sx={{
+                      borderRadius: 0,
+                      width: "100%",
+                      textAlign: 'center'
+                    }}
+                  >
                     {item.label}
                   </StyledLink>
                 </ListItem>
