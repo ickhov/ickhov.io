@@ -279,7 +279,15 @@ const Experience = () => {
       >
         Experience
       </Typography>
-      <Timeline>
+      {/* Computer view */}
+      <Timeline
+        sx={{
+          display: {
+            xs: "none",
+            md: "flex",
+          },
+        }}
+      >
         {experience.map((item, index) => (
           <TimelineItem key={`${item.title}-${index}`}>
             <TimelineOppositeContent>
@@ -303,6 +311,56 @@ const Experience = () => {
                 }
               >
                 {item.company}
+              </Typography>
+              <Typography
+                color={(theme) =>
+                  theme.palette.mode === "light"
+                    ? theme.palette.grey[500]
+                    : theme.palette.grey[400]
+                }
+              >
+                {item.location} &#8226; {item.type}
+              </Typography>
+              {item.tasks.map((task, index) => (
+                <Typography key={`${item.title}-task-${index}`}>
+                  &#8226; {task}
+                </Typography>
+              ))}
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </Timeline>
+      {/* Mobile view */}
+      <Timeline
+        sx={{
+          display: {
+            xs: "flex",
+            md: "none",
+          },
+        }}
+      >
+        {experience.map((item, index) => (
+          <TimelineItem key={`${item.title}-${index}`}>
+            <TimelineOppositeContent sx={{ display: "none" }} />
+            <TimelineSeparator>
+              <TimelineDot />
+              {index < experience.length - 1 && <TimelineConnector />}
+            </TimelineSeparator>
+            <TimelineContent>
+              <Typography variant="h6" color="secondary">
+                {item.title}
+              </Typography>
+              <Typography
+                color={(theme) =>
+                  theme.palette.mode === "light"
+                    ? theme.palette.grey[600]
+                    : theme.palette.grey[300]
+                }
+              >
+                {item.company}
+              </Typography>
+              <Typography>
+                {item.start} - {item.end} &#8226; {item.durationStr}
               </Typography>
               <Typography
                 color={(theme) =>
