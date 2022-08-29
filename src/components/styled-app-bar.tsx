@@ -39,15 +39,19 @@ const StyledAppBar = (props: AppBarProps) => {
   return (
     <Box
       sx={{
+        boxSizing: "border-box",
         display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        minHeight: "100vh",
       }}
     >
       <AppBar
         component="nav"
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           backgroundColor: theme.palette.background.paper,
           ...(mobileOpen ? { boxShadow: "none" } : {}),
         }}
@@ -67,18 +71,16 @@ const StyledAppBar = (props: AppBarProps) => {
           >
             <MenuIcon sx={{ color: theme.palette.text.primary }} />
           </IconButton>
-          <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{
-                color: theme.palette.text.primary,
-                marginLeft: theme.spacing(1),
-              }}
-            >
-              {title}
-            </Typography>
-          </Box>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              color: theme.palette.text.primary,
+              flexGrow: 1,
+            }}
+          >
+            {title}
+          </Typography>
           <Box sx={{ display: { xs: "none", md: "block" } }}>
             {menu.map((item) => (
               <Button
@@ -152,18 +154,37 @@ const StyledAppBar = (props: AppBarProps) => {
         component="main"
         sx={{
           width: "100%",
-          height: "100vh",
+          flexGrow: 1,
         }}
       >
         <Toolbar />
         <Box
           sx={{
+            boxSizing: "border-box",
             height: { xs: "calc(100% - 56px)", md: "calc(100% - 64px)" },
             ...sx,
           }}
         >
           {children}
         </Box>
+      </Box>
+      <Box
+        component="footer"
+        sx={{
+          width: "100%",
+          minHeight: "56px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          variant="subtitle1"
+          gutterBottom={false}
+          sx={{ color: (theme) => theme.palette.text.secondary }}
+        >
+          Made by Iev Khov
+        </Typography>
       </Box>
     </Box>
   );

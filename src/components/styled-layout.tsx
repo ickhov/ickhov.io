@@ -6,7 +6,6 @@ const StyledLayout = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   width: "100%",
-  minHeight: '100vh',
   background: theme.palette.background.paper
 }));
 

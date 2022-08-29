@@ -24,11 +24,7 @@ const Main = () => {
 
   return (
     <BrowserRouter>
-      <StyledAppBar
-        title={"Iev Chhoung Khov"}
-        menu={menu}
-        sx={{ padding: (theme) => theme.spacing(3) }}
-      >
+      <StyledAppBar title={"Iev Chhoung Khov"} menu={menu}>
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="experience" element={<Home />} />

@@ -1,7 +1,6 @@
 // TSX
 export { default as StyledAlert } from "./styled-alert";
 export { default as StyledAppBar } from "./styled-app-bar";
-export { default as StyledFooter } from "./styled-footer";
 export { default as StyledFormControl } from "./styled-form-control";
 export { default as StyledHeader } from "./styled-header";
 export { default as StyledLayout } from "./styled-layout";
