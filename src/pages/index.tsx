@@ -1,39 +1,38 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { StyledAppBar } from "../components";
-import Home from "./home";
+export { default as Experience } from "./experience";
+export { default as Home } from "./home";
 
 const Main = () => {
   const menu = [
     {
       label: "Home",
-      onClick: () => {},
+      dest: "/",
     },
     {
       label: "Experience",
-      onClick: () => {},
+      dest: "experience",
     },
     {
       label: "Projects",
-      onClick: () => {},
+      dest: "projects",
     },
     {
       label: "Education",
-      onClick: () => {},
+      dest: "education",
     },
   ];
 
   return (
-    <BrowserRouter>
-      <StyledAppBar title={"Iev Chhoung Khov"} menu={menu}>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route path="experience" element={<Home />} />
-            <Route path="projects" element={<Home />} />
-            <Route path="education" element={<Home />} />
-          </Route>
-        </Routes>
-      </StyledAppBar>
-    </BrowserRouter>
+    <StyledAppBar
+      title={"Test"}
+      menu={menu}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+      }}
+    />
   );
 };
 
