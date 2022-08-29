@@ -9,6 +9,7 @@ import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { darkTheme, defaultTheme, lightTheme } from "./themes";
 import Main, { Experience, Home } from "./pages";
+import { CssBaseline } from "@mui/material";
 
 function AppWithColorMode() {
   const { mode } = useColorMode();
@@ -28,12 +29,12 @@ function AppWithColorMode() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />}>
             <Route path="" element={<Home />} />
             <Route path="experience" element={<Experience />} />
-            <Route path="projects" element={<Home />} />
             <Route path="education" element={<Home />} />
           </Route>
         </Routes>

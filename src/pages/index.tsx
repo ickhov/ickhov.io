@@ -13,10 +13,6 @@ const Main = () => {
       dest: "experience",
     },
     {
-      label: "Projects",
-      dest: "projects",
-    },
-    {
       label: "Education",
       dest: "education",
     },
@@ -24,7 +20,7 @@ const Main = () => {
 
   return (
     <StyledAppBar
-      title={"Test"}
+      title={"Iev Chhoung Khov"}
       menu={menu}
       sx={{
         display: "flex",
