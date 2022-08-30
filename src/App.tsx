@@ -8,7 +8,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
-import Main, { About, Experience, Home } from "./pages";
+import Main, { About, Experience, Home, Projects } from "./pages";
 import { darkTheme, defaultTheme, lightTheme } from "./themes";
 
 function AppWithColorMode() {
@@ -36,6 +36,7 @@ function AppWithColorMode() {
             <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="experience" element={<Experience />} />
+            <Route path="projects" element={<Projects />} />
           </Route>
         </Routes>
       </BrowserRouter>
