@@ -64,11 +64,7 @@ const About = () => {
   return (
     <StyledLayout>
       <GrowAnimation timeout={{ enter: delay }}>
-        <Typography
-          gutterBottom
-          variant="h5"
-          sx={{ fontWeight: 700, marginTop: (theme) => theme.spacing(2) }}
-        >
+        <Typography variant="h5" sx={{ fontWeight: 700 }} gutterBottom>
           About Me
         </Typography>
       </GrowAnimation>

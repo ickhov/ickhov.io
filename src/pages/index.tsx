@@ -2,6 +2,7 @@ import { StyledAppBar } from "../components";
 export { default as Experience } from "./experience";
 export { default as Home } from "./home";
 export { default as About } from "./about";
+export { default as Projects } from "./projects";
 
 const Main = () => {
   const menu = [
@@ -16,6 +17,10 @@ const Main = () => {
     {
       label: "Experience",
       dest: "experience",
+    },
+    {
+      label: "Projects",
+      dest: "projects",
     },
   ];
 
