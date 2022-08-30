@@ -1,21 +1,17 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import { SxProps, Theme, useTheme } from "@mui/material/styles";
+import { alpha, styled, SxProps, Theme, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 import { useColorMode } from "../contexts/color-mode";
 import StyledColorModeSwitch from "./styled-color-mode-switch";
-import { Outlet } from "react-router-dom";
-import StyledLink from "./styled-link";
 
 interface Menu {
   label: string;
@@ -27,6 +23,26 @@ interface AppBarProps extends React.PropsWithChildren {
   menu: Menu[];
   sx?: SxProps<Theme> | undefined;
 }
+
+const StyledLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  fontFamily: "Montserrat, sans-serif",
+  "&:hover": {
+    background: alpha(
+      theme.palette.secondary.main,
+      theme.palette.mode === "light" ? 0.2 : 0.4
+    ),
+  },
+  "&:active": {
+    color:
+      theme.palette.mode === "light"
+        ? theme.palette.secondary.main
+        : theme.palette.text.primary,
+  },
+  padding: theme.spacing(1.5),
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.text.primary,
+}));
 
 const StyledAppBar = (props: AppBarProps) => {
   const theme = useTheme();
@@ -127,7 +143,7 @@ const StyledAppBar = (props: AppBarProps) => {
                     sx={{
                       borderRadius: 0,
                       width: "100%",
-                      textAlign: 'center'
+                      textAlign: "center",
                     }}
                   >
                     {item.label}
@@ -187,7 +203,7 @@ const StyledAppBar = (props: AppBarProps) => {
           gutterBottom={false}
           sx={{ color: (theme) => theme.palette.text.secondary }}
         >
-          Made by Iev Khov
+          Made by Iev Khov in Sacramento, California
         </Typography>
       </Box>
     </Box>

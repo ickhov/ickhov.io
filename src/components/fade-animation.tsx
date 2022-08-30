@@ -1,11 +1,11 @@
-import { Fade, Slide, SlideProps } from "@mui/material";
-import React, { useState } from "react";
+import { Fade, FadeProps } from "@mui/material";
+import React from "react";
 
-interface DelaySlideProps extends SlideProps {
+interface DelayFadeProps extends FadeProps {
   delay?: number;
 }
 
-const SlideFadeAnimation = React.forwardRef<HTMLDivElement, DelaySlideProps>(
+const FadeAnimation = React.forwardRef<HTMLDivElement, DelayFadeProps>(
   (props, ref) => {
     const { delay, ...rest } = props;
     const [animate, setAnimate] = React.useState(false);
@@ -20,22 +20,17 @@ const SlideFadeAnimation = React.forwardRef<HTMLDivElement, DelaySlideProps>(
     }, [delay]);
 
     return (
-      <Slide
+      <Fade
         ref={ref}
         in={animate}
-        direction="left"
-        mountOnEnter
         timeout={{ enter: 1000 }}
+        mountOnEnter
         {...rest}
       >
-        <div>
-          <Fade in timeout={props.timeout || { enter: 1000 }}>
-            {props.children}
-          </Fade>
-        </div>
-      </Slide>
+        {props.children}
+      </Fade>
     );
   }
 );
 
-export default SlideFadeAnimation;
+export default FadeAnimation;
