@@ -1,15 +1,15 @@
+import { CssBaseline } from "@mui/material";
 import {
   createTheme,
   StyledEngineProvider,
   ThemeProvider,
 } from "@mui/material/styles";
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { darkTheme, defaultTheme, lightTheme } from "./themes";
 import Main, { Experience, Home } from "./pages";
-import { CssBaseline } from "@mui/material";
+import { darkTheme, defaultTheme, lightTheme } from "./themes";
 
 function AppWithColorMode() {
   const { mode } = useColorMode();
@@ -35,7 +35,6 @@ function AppWithColorMode() {
           <Route path="/" element={<Main />}>
             <Route path="" element={<Home />} />
             <Route path="experience" element={<Experience />} />
-            <Route path="education" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>
