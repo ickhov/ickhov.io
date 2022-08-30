@@ -9,8 +9,7 @@ import {
 } from "@mui/lab";
 import { Typography } from "@mui/material";
 import React from "react";
-import { GrowAnimation, SlideFadeAnimation, StyledLayout } from "../components";
-import FadeAnimation from "../components/fade-animation";
+import { GrowAnimation, FadeAnimation, StyledLayout } from "../components";
 
 enum Month {
   Jan,
