@@ -203,7 +203,7 @@ const StyledAppBar = (props: AppBarProps) => {
           gutterBottom={false}
           sx={{ color: (theme) => theme.palette.text.secondary }}
         >
-          Made by Iev Khov
+          Made by Iev Khov in Sacramento, California
         </Typography>
       </Box>
     </Box>
