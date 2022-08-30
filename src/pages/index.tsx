@@ -1,12 +1,17 @@
 import { StyledAppBar } from "../components";
 export { default as Experience } from "./experience";
 export { default as Home } from "./home";
+export { default as About } from "./about";
 
 const Main = () => {
   const menu = [
     {
+      label: "Home",
+      dest: "",
+    },
+    {
       label: "About",
-      dest: "/",
+      dest: "about",
     },
     {
       label: "Experience",
