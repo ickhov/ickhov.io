@@ -34,6 +34,7 @@ function AppWithColorMode() {
         <Routes>
           <Route path="/" element={<Main />}>
             <Route path="" element={<Home />} />
+            <Route path="about" element={<Home />} />
             <Route path="experience" element={<Experience />} />
           </Route>
         </Routes>

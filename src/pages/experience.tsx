@@ -9,7 +9,8 @@ import {
 } from "@mui/lab";
 import { Typography } from "@mui/material";
 import React from "react";
-import { StyledLayout } from "../components";
+import { GrowAnimation, SlideFadeAnimation, StyledLayout } from "../components";
+import FadeAnimation from "../components/fade-animation";
 
 enum Month {
   Jan,
@@ -57,6 +58,7 @@ interface IExperience {
 }
 
 const Experience = () => {
+  const delay = 400;
   const [experience, setExperience] = React.useState<IExperience[]>([]);
   const data: IRawExperience[] = React.useMemo(
     () => [
@@ -265,121 +267,141 @@ const Experience = () => {
 
   return (
     <StyledLayout>
-      <Typography variant="h5" sx={{ fontWeight: 700 }} gutterBottom>
-        TL;DR
-      </Typography>
-      <Typography>
-        I have <b>{formatDuration(calculateFullTime())}</b> of <b>full-time</b>{" "}
-        SWE experience and <b>2 years 3 months</b> of{" "}
-        <b>part-time/internship</b> SWE experience.
-      </Typography>
-      <Typography
-        variant="h5"
-        sx={{ fontWeight: 700, marginTop: (theme) => theme.spacing(2) }}
-      >
-        Experience
-      </Typography>
-      {/* Computer view */}
-      <Timeline
-        sx={{
-          display: {
-            xs: "none",
-            md: "flex",
-          },
-        }}
-      >
-        {experience.map((item, index) => (
-          <TimelineItem key={`${item.title}-${index}`}>
-            <TimelineOppositeContent>
-              <Typography>
-                {item.start} - {item.end} &#8226; {item.durationStr}
-              </Typography>
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot />
-              {index < experience.length - 1 && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography variant="h6" color="secondary">
-                {item.title}
-              </Typography>
-              <Typography
-                color={(theme) =>
-                  theme.palette.mode === "light"
-                    ? theme.palette.grey[600]
-                    : theme.palette.grey[300]
-                }
-              >
-                {item.company}
-              </Typography>
-              <Typography
-                color={(theme) =>
-                  theme.palette.mode === "light"
-                    ? theme.palette.grey[500]
-                    : theme.palette.grey[400]
-                }
-              >
-                {item.location} &#8226; {item.type}
-              </Typography>
-              {item.tasks.map((task, index) => (
-                <Typography key={`${item.title}-task-${index}`}>
-                  &#8226; {task}
-                </Typography>
-              ))}
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
+      <GrowAnimation timeout={{ enter: delay }}>
+        <Typography variant="h5" sx={{ fontWeight: 700 }} gutterBottom>
+          TL;DR
+        </Typography>
+      </GrowAnimation>
+      <GrowAnimation timeout={{ enter: delay }} delay={delay}>
+        <Typography>
+          I have <b>{formatDuration(calculateFullTime())}</b> of{" "}
+          <b>full-time</b> SWE experience and <b>2 years 3 months</b> of{" "}
+          <b>part-time/internship</b> SWE experience.
+        </Typography>
+      </GrowAnimation>
+      <GrowAnimation timeout={{ enter: delay }} delay={delay * 2}>
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: 700, marginTop: (theme) => theme.spacing(2) }}
+        >
+          Experience
+        </Typography>
+      </GrowAnimation>
+      {/* Computer screen view */}
+      <GrowAnimation timeout={{ enter: delay }} delay={delay * 3}>
+        <Timeline
+          sx={{
+            display: {
+              xs: "none",
+              md: "flex",
+            },
+          }}
+        >
+          {experience.map((item, index) => (
+            <FadeAnimation
+              timeout={{ enter: delay }}
+              delay={delay * index}
+            >
+              <TimelineItem key={`${item.title}-${index}`}>
+                <TimelineOppositeContent>
+                  <Typography>
+                    {item.start} - {item.end} &#8226; {item.durationStr}
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot />
+                  {index < experience.length - 1 && <TimelineConnector />}
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Typography variant="h6" color="secondary">
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    color={(theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[600]
+                        : theme.palette.grey[300]
+                    }
+                  >
+                    {item.company}
+                  </Typography>
+                  <Typography
+                    color={(theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[500]
+                        : theme.palette.grey[400]
+                    }
+                  >
+                    {item.location} &#8226; {item.type}
+                  </Typography>
+                  {item.tasks.map((task, index) => (
+                    <Typography key={`${item.title}-task-${index}`}>
+                      &#8226; {task}
+                    </Typography>
+                  ))}
+                </TimelineContent>
+              </TimelineItem>
+            </FadeAnimation>
+          ))}
+        </Timeline>
+      </GrowAnimation>
       {/* Mobile view */}
-      <Timeline
-        sx={{
-          display: {
-            xs: "flex",
-            md: "none",
-          },
-        }}
-      >
-        {experience.map((item, index) => (
-          <TimelineItem key={`${item.title}-${index}`}>
-            <TimelineOppositeContent sx={{ display: "none" }} />
-            <TimelineSeparator>
-              <TimelineDot />
-              {index < experience.length - 1 && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography variant="h6" color="secondary">
-                {item.title}
-              </Typography>
-              <Typography
-                color={(theme) =>
-                  theme.palette.mode === "light"
-                    ? theme.palette.grey[600]
-                    : theme.palette.grey[300]
-                }
-              >
-                {item.company}
-              </Typography>
-              <Typography>
-                {item.start} - {item.end} &#8226; {item.durationStr}
-              </Typography>
-              <Typography
-                color={(theme) =>
-                  theme.palette.mode === "light"
-                    ? theme.palette.grey[500]
-                    : theme.palette.grey[400]
-                }
-              >
-                {item.location} &#8226; {item.type}
-              </Typography>
-              {item.tasks.map((task, index) => (
-                <Typography key={`${item.title}-task-${index}`}>
-                  &#8226; {task}
-                </Typography>
-              ))}
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
+      <GrowAnimation timeout={{ enter: delay }} delay={delay * 3}>
+        <Timeline
+          sx={{
+            display: {
+              xs: "flex",
+              md: "none",
+            },
+          }}
+        >
+          {experience.map((item, index) => (
+            <FadeAnimation
+              timeout={{ enter: delay }}
+              delay={delay * index}
+            >
+              <TimelineItem key={`${item.title}-${index}`}>
+                <TimelineOppositeContent sx={{ display: "none" }} />
+                <TimelineSeparator>
+                  <TimelineDot />
+                  {index < experience.length - 1 && <TimelineConnector />}
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Typography variant="h6" color="secondary">
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    color={(theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[600]
+                        : theme.palette.grey[300]
+                    }
+                  >
+                    {item.company}
+                  </Typography>
+                  <Typography>
+                    {item.start} - {item.end} &#8226; {item.durationStr}
+                  </Typography>
+                  <Typography
+                    color={(theme) =>
+                      theme.palette.mode === "light"
+                        ? theme.palette.grey[500]
+                        : theme.palette.grey[400]
+                    }
+                  >
+                    {item.location} &#8226; {item.type}
+                  </Typography>
+                  {item.tasks.map((task, index) => (
+                    <Typography key={`${item.title}-task-${index}`}>
+                      &#8226; {task}
+                    </Typography>
+                  ))}
+                </TimelineContent>
+              </TimelineItem>
+            </FadeAnimation>
+          ))}
+        </Timeline>
+      </GrowAnimation>
     </StyledLayout>
   );
 };

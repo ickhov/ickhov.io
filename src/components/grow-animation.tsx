@@ -1,11 +1,11 @@
-import { Fade, Slide, SlideProps } from "@mui/material";
-import React, { useState } from "react";
+import { Grow, GrowProps } from "@mui/material";
+import React from "react";
 
-interface DelaySlideProps extends SlideProps {
+interface DelayGrowProps extends GrowProps {
   delay?: number;
 }
 
-const SlideFadeAnimation = React.forwardRef<HTMLDivElement, DelaySlideProps>(
+const GrowAnimation = React.forwardRef<HTMLDivElement, DelayGrowProps>(
   (props, ref) => {
     const { delay, ...rest } = props;
     const [animate, setAnimate] = React.useState(false);
@@ -20,22 +20,18 @@ const SlideFadeAnimation = React.forwardRef<HTMLDivElement, DelaySlideProps>(
     }, [delay]);
 
     return (
-      <Slide
+      <Grow
         ref={ref}
         in={animate}
-        direction="left"
-        mountOnEnter
         timeout={{ enter: 1000 }}
+        style={{ transformOrigin: "0 0 0" }} // animate from top
+        mountOnEnter
         {...rest}
       >
-        <div>
-          <Fade in timeout={props.timeout || { enter: 1000 }}>
-            {props.children}
-          </Fade>
-        </div>
-      </Slide>
+        {props.children}
+      </Grow>
     );
   }
 );
 
-export default SlideFadeAnimation;
+export default GrowAnimation;

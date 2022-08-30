@@ -5,8 +5,12 @@ export { default as Home } from "./home";
 const Main = () => {
   const menu = [
     {
+      label: "Home",
+      dest: "",
+    },
+    {
       label: "About",
-      dest: "/",
+      dest: "about",
     },
     {
       label: "Experience",
