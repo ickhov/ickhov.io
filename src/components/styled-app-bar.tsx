@@ -152,14 +152,23 @@ const StyledAppBar = (props: AppBarProps) => {
               alignItems: "center",
             }}
           >
-            <Typography
-              variant="h6"
-              component="div"
-              fontFamily={"Bungee, cursive"}
+            <StyledLink
+              key="app-bar-title"
+              to={""}
+              sx={{
+                paddingLeft: 0,
+                fontFamily: "Bungee, cursive",
+                fontSize: "20px",
+                "&:hover": {
+                  background: "none",
+                },
+                "&:active": {
+                  color: theme.palette.text.primary,
+                },
+              }}
             >
               {title}
-            </Typography>
-
+            </StyledLink>
             <a
               href="https://github.com/ickhov"
               target="_blank"
@@ -167,7 +176,7 @@ const StyledAppBar = (props: AppBarProps) => {
               style={{
                 fontSize: 0,
                 textDecoration: "none",
-                marginLeft: "16px",
+                marginLeft: "8px",
               }}
             >
               <img
@@ -298,9 +307,8 @@ const StyledAppBar = (props: AppBarProps) => {
         <Typography
           variant="subtitle1"
           gutterBottom={false}
-          sx={{ color: (theme) => theme.palette.text.secondary }}
         >
-          Made by Iev Khov in Sacramento, California
+          Made with &#10084; in Sacramento, California
         </Typography>
       </Box>
     </Box>
