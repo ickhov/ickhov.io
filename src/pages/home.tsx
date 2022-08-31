@@ -11,11 +11,11 @@ const Home = () => {
   const [isReverse, setIsReverse] = React.useState(false);
   const items = React.useMemo(
     () => [
-      "software engineer",
-      "food lover",
-      "boba drinker",
-      "problem solver",
-      "stargazer",
+      "Software Engineer.",
+      "Food Lover.",
+      "Boba Drinker.",
+      "Problem Solver.",
+      "Stargazer.",
     ],
     []
   );
@@ -83,7 +83,7 @@ const Home = () => {
           fontFamily={"Bungee, cursive"}
           sx={{ marginTop: theme.spacing(3), textAlign: "center" }}
         >
-          Hi&#44; I&#39;m Iev Khov
+          Hi&#44; I&#39;m Iev Chhoung Khov
         </Typography>
         <Typography
           gutterBottom

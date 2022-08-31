@@ -111,6 +111,8 @@ const StyledAppBar = (props: AppBarProps) => {
         flexDirection: "column",
         justifyContent: "center",
         minHeight: "100vh",
+        background: (theme) =>
+          `linear-gradient(135deg, ${theme.palette.gradient.top}, ${theme.palette.gradient.bottom});`,
       }}
     >
       <AppBar
