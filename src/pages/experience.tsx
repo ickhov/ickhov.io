@@ -69,7 +69,7 @@ const Experience = () => {
         endYear: "Present",
         location: "Sacramento, California",
         tasks: [
-          "Manage multiple frontend (React & Next.js) and backend (Node.js) projects",
+          "Manage multiple frontend (React & Next.js) and backend (Node.js & Django) projects",
           "Design and implement user interfaces for React & Next.js projects using MUI library",
           "Develop RESTful and GraphQL APIs using Node.js and PostgreSQL",
           "Deploy websites, APIs, and microservices on Ubuntu servers using Docker images",
@@ -298,6 +298,7 @@ const Experience = () => {
         >
           {experience.map((item, index) => (
             <FadeAnimation
+              key={`computer-view-experience-${item.title}-${index}`}
               timeout={{ enter: delay }}
               delay={delay * index}
             >
@@ -312,7 +313,7 @@ const Experience = () => {
                   {index < experience.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography variant="h6" color="secondary">
+                  <Typography variant="h6" fontWeight={700}>
                     {item.title}
                   </Typography>
                   <Typography
@@ -356,6 +357,7 @@ const Experience = () => {
         >
           {experience.map((item, index) => (
             <FadeAnimation
+              key={`mobile-view-experience-${item.title}-${index}`}
               timeout={{ enter: delay }}
               delay={delay * index}
             >
@@ -366,7 +368,7 @@ const Experience = () => {
                   {index < experience.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography variant="h6" color="secondary">
+                  <Typography variant="h6" fontWeight={700}>
                     {item.title}
                   </Typography>
                   <Typography
