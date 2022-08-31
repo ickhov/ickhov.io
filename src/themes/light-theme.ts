@@ -5,7 +5,7 @@ const lightTheme: ThemeOptions = {
   palette: {
     mode: "light",
     primary: {
-      main
+      main,
     },
     secondary: {
       main: "#8d42ef",
@@ -13,6 +13,10 @@ const lightTheme: ThemeOptions = {
     background: {
       paper: main,
       default: main,
+    },
+    gradient: {
+      top: "#F6F0EA",
+      bottom: "#F9D29D",
     },
   },
 };

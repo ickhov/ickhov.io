@@ -14,6 +14,10 @@ import { alpha, styled, SxProps, Theme, useTheme } from "@mui/material/styles";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useColorMode } from "../contexts/color-mode";
+import GitHubLogoLight from "../static/images/github-logo-light.png";
+import GitHubLogoDark from "../static/images/github-logo-dark.png";
+import LinkedInLogoLight from "../static/images/linkedin-logo-light.png";
+import LinkedInLogoDark from "../static/images/linkedin-logo-dark.png";
 
 interface Menu {
   label: string;
@@ -111,6 +115,8 @@ const StyledAppBar = (props: AppBarProps) => {
         flexDirection: "column",
         justifyContent: "center",
         minHeight: "100vh",
+        background: (theme) =>
+          `linear-gradient(135deg, ${theme.palette.gradient.top}, ${theme.palette.gradient.bottom});`,
       }}
     >
       <AppBar
@@ -139,16 +145,69 @@ const StyledAppBar = (props: AppBarProps) => {
           >
             <MenuIcon sx={{ color: theme.palette.text.primary }} />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
+          <Box
             sx={{
-              color: theme.palette.text.primary,
+              display: "flex",
               flexGrow: 1,
+              alignItems: "center",
             }}
           >
-            {title}
-          </Typography>
+            <StyledLink
+              key="app-bar-title"
+              to={""}
+              sx={{
+                paddingLeft: 0,
+                fontFamily: "Bungee, cursive",
+                fontSize: "20px",
+                "&:hover": {
+                  background: "none",
+                },
+                "&:active": {
+                  color: theme.palette.text.primary,
+                },
+              }}
+            >
+              {title}
+            </StyledLink>
+            <a
+              href="https://github.com/ickhov"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                fontSize: 0,
+                textDecoration: "none",
+                marginLeft: "8px",
+              }}
+            >
+              <img
+                src={
+                  theme.palette.mode === "light"
+                    ? GitHubLogoLight
+                    : GitHubLogoDark
+                }
+                height={35}
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ickhov/"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                fontSize: 0,
+                textDecoration: "none",
+                marginLeft: "10px",
+              }}
+            >
+              <img
+                src={
+                  theme.palette.mode === "light"
+                    ? LinkedInLogoLight
+                    : LinkedInLogoDark
+                }
+                height={35}
+              />
+            </a>
+          </Box>
           <Box sx={{ display: { xs: "none", md: "block" } }}>
             {menu.map((item) => (
               <StyledLink key={item.label} to={item.dest}>
@@ -199,21 +258,19 @@ const StyledAppBar = (props: AppBarProps) => {
                   </StyledLink>
                 </ListItem>
               ))}
-              <ListItem key="styled-color-mode-switch" disablePadding>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <StyledColorModeSwitch
-                    sx={{ m: 1 }}
-                    checked={mode === "dark"}
-                    onChange={toggleColorMode}
-                  />
-                </Box>
+              <ListItem
+                key="styled-color-mode-switch"
+                disablePadding
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <StyledColorModeSwitch
+                  sx={{ m: 1 }}
+                  checked={mode === "dark"}
+                  onChange={toggleColorMode}
+                />
               </ListItem>
             </List>
           </Box>
@@ -250,9 +307,8 @@ const StyledAppBar = (props: AppBarProps) => {
         <Typography
           variant="subtitle1"
           gutterBottom={false}
-          sx={{ color: (theme) => theme.palette.text.secondary }}
         >
-          Made by Iev Khov in Sacramento, California
+          Made with &#10084; in Sacramento, California
         </Typography>
       </Box>
     </Box>

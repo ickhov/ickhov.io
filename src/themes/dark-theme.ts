@@ -9,6 +9,10 @@ const darkTheme: ThemeOptions = {
     secondary: {
       main: "#8d42ef",
     },
+    gradient: {
+      top: "#7F8C8D",
+      bottom: "#000000",
+    },
   },
 };
 
