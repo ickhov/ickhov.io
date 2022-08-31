@@ -6,13 +6,13 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { GrowAnimation, StyledLayout, StyledAnchor } from "../components";
-import NookerooAppIcon from "../static/images/nookeroo-app-icon.png";
-import UCDavisMobileIOSImg from "../static/images/uc-davis-mobile-ios.png";
-import UCDavisMobileAndroidImg from "../static/images/uc-davis-mobile-android.png";
-import MonowealthAppIcon from "../static/images/monowealth-app-icon.png";
-import UnitransAppIcon from "../static/images/unitrans-app-icon.png";
+import { GrowAnimation, StyledAnchor, StyledLayout } from "../components";
 import BikeSharingVisual from "../static/images/bike-sharing-visual.png";
+import MonowealthAppIcon from "../static/images/monowealth-app-icon.png";
+import NookerooAppIcon from "../static/images/nookeroo-app-icon.png";
+import UCDavisMobileAndroidImg from "../static/images/uc-davis-mobile-android.png";
+import UCDavisMobileIOSImg from "../static/images/uc-davis-mobile-ios.png";
+import UnitransAppIcon from "../static/images/unitrans-app-icon.png";
 
 interface IProjects {
   title: string;
@@ -123,7 +123,11 @@ const Projects = () => {
       </GrowAnimation>
       <Grid container spacing={2}>
         {items.map((item, index) => (
-          <GrowAnimation timeout={{ enter: delay }} delay={delay * (index + 1)}>
+          <GrowAnimation
+            key={`projects-${item.title}-${index}`}
+            timeout={{ enter: delay }}
+            delay={delay * (index + 1)}
+          >
             <Grid item xs={12} sm={6} md={4}>
               <Card
                 sx={{
