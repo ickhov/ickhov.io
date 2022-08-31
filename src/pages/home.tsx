@@ -1,8 +1,8 @@
 import { Avatar, Box, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import React from "react";
 import { StyledLayout } from "../components";
 import ProfilePic from "../static/images/iev-profile-pic.png";
-import { useTheme } from "@mui/material/styles";
 
 const Home = () => {
   const theme = useTheme();
