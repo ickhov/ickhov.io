@@ -180,6 +180,7 @@ const StyledAppBar = (props: AppBarProps) => {
               }}
             >
               <img
+                alt="Iev Khov's GitHub"
                 src={
                   theme.palette.mode === "light"
                     ? GitHubLogoLight
@@ -199,6 +200,7 @@ const StyledAppBar = (props: AppBarProps) => {
               }}
             >
               <img
+                alt="Iev Khov's LinkedIn"
                 src={
                   theme.palette.mode === "light"
                     ? LinkedInLogoLight
@@ -304,10 +306,7 @@ const StyledAppBar = (props: AppBarProps) => {
           alignItems: "center",
         }}
       >
-        <Typography
-          variant="subtitle1"
-          gutterBottom={false}
-        >
+        <Typography variant="subtitle1" gutterBottom={false}>
           Made with &#10084; in Sacramento, California
         </Typography>
       </Box>
