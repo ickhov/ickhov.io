@@ -30,12 +30,14 @@ const About = () => {
     {
       title: "Tech Stack",
       description:
-        "TypeScript, JavaScript, Python, Swift, Java, Node.js, React, Django, AWS, DigitalOcean",
+        "TypeScript, JavaScript, Python, Swift, Java, Node.js, React, Django, AWS, DigitalOcean, Nginx, Docker",
       summary: `
         I have work experience using TypeScript, JavaScript, Python, Swift, Java, Node.js, React, and Django.
         I can program in a lot of other languages but have the most experiences with JavaScript and TypeScript
         at the moment. I also designed and implemented APIs, microservices, and websites and deployed them on
-        Linux servers hosted on AWS and DigitalOcean.
+        Linux machines using Nginx as the web server. I prefer to use AWS and DigitalOcean as my prefered choice
+        of cloud platforms. To ensure easy redeployment, I usually create Docker images for APIs and websites
+        and deploy them in docker containers.
       `,
     },
     {
@@ -44,7 +46,7 @@ const About = () => {
         "B.S. in Computer Science from the University of California, Davis (UC Davis)",
       summary: `
         I'm a first-generation college graduated from UC Davis with a degree in Computer Science. I graduated with
-        a 3.55/4.00 GPA in March 20, 2020. I was on the Dean's Honors List in 2019 and 2020.
+        a 3.55/4.00 GPA in March 20, 2020, and I was on the Dean's Honors List in 2019 and 2020.
       `,
     },
   ];
@@ -69,7 +71,11 @@ const About = () => {
         </Typography>
       </GrowAnimation>
       {items.map((item, index) => (
-        <FadeAnimation timeout={{ enter: delay }} delay={delay * (index + 1)}>
+        <FadeAnimation
+          key={`about-accordian-${item.title}-${index}`}
+          timeout={{ enter: delay }}
+          delay={delay * (index + 1)}
+        >
           <Accordion
             expanded={expandedList[index]}
             onChange={handleChange(index)}
