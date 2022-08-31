@@ -1,5 +1,5 @@
 import { Fade, Slide, SlideProps } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 
 interface DelaySlideProps extends SlideProps {
   delay?: number;
