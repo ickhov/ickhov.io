@@ -58,7 +58,11 @@ const Home = () => {
       else if (index === 0) {
         // removed everything so move on to the next word
         setIsReverse(false);
-        setItemIndex((prev) => (prev % (items.length - 1)) + 1);
+        setItemIndex((prev) => {
+          const next = prev + 1;
+          if (next === items.length) return 0;
+          return next;
+        });
       }
     }
   }, [isReverse, index, items]);
