@@ -69,7 +69,7 @@ const Experience = () => {
         endYear: "Present",
         location: "Sacramento, California",
         tasks: [
-          "Manage multiple frontend (React & Next.js) and backend (Node.js) projects",
+          "Manage multiple frontend (React & Next.js) and backend (Node.js & Django) projects",
           "Design and implement user interfaces for React & Next.js projects using MUI library",
           "Develop RESTful and GraphQL APIs using Node.js and PostgreSQL",
           "Deploy websites, APIs, and microservices on Ubuntu servers using Docker images",
