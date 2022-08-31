@@ -146,6 +146,7 @@ const StyledAppBar = (props: AppBarProps) => {
               color: theme.palette.text.primary,
               flexGrow: 1,
             }}
+            fontFamily={"Bungee, cursive"}
           >
             {title}
           </Typography>

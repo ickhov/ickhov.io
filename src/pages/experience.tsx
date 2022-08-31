@@ -298,6 +298,7 @@ const Experience = () => {
         >
           {experience.map((item, index) => (
             <FadeAnimation
+              key={`computer-view-experience-${item.title}-${index}`}
               timeout={{ enter: delay }}
               delay={delay * index}
             >
@@ -356,6 +357,7 @@ const Experience = () => {
         >
           {experience.map((item, index) => (
             <FadeAnimation
+              key={`mobile-view-experience-${item.title}-${index}`}
               timeout={{ enter: delay }}
               delay={delay * index}
             >
