@@ -150,6 +150,10 @@ const StyledAppBar = (props: AppBarProps) => {
               display: "flex",
               flexGrow: 1,
               alignItems: "center",
+              justifyContent: {
+                xs: "space-between",
+                md: "flex-start",
+              },
             }}
           >
             <StyledLink
@@ -169,46 +173,48 @@ const StyledAppBar = (props: AppBarProps) => {
             >
               {title}
             </StyledLink>
-            <a
-              href="https://github.com/ickhov"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                fontSize: 0,
-                textDecoration: "none",
-                marginLeft: "8px",
-              }}
-            >
-              <img
-                alt="Iev Khov's GitHub"
-                src={
-                  theme.palette.mode === "light"
-                    ? GitHubLogoLight
-                    : GitHubLogoDark
-                }
-                height={35}
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ickhov/"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                fontSize: 0,
-                textDecoration: "none",
-                marginLeft: "10px",
-              }}
-            >
-              <img
-                alt="Iev Khov's LinkedIn"
-                src={
-                  theme.palette.mode === "light"
-                    ? LinkedInLogoLight
-                    : LinkedInLogoDark
-                }
-                height={35}
-              />
-            </a>
+            <Box sx={{ display: "flex" }}>
+              <a
+                href="https://github.com/ickhov"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  fontSize: 0,
+                  textDecoration: "none",
+                  marginLeft: "8px",
+                }}
+              >
+                <img
+                  alt="Iev Khov's GitHub"
+                  src={
+                    theme.palette.mode === "light"
+                      ? GitHubLogoLight
+                      : GitHubLogoDark
+                  }
+                  height={35}
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ickhov/"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  fontSize: 0,
+                  textDecoration: "none",
+                  marginLeft: "10px",
+                }}
+              >
+                <img
+                  alt="Iev Khov's LinkedIn"
+                  src={
+                    theme.palette.mode === "light"
+                      ? LinkedInLogoLight
+                      : LinkedInLogoDark
+                  }
+                  height={35}
+                />
+              </a>
+            </Box>
           </Box>
           <Box sx={{ display: { xs: "none", md: "block" } }}>
             {menu.map((item) => (

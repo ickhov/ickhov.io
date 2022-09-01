@@ -319,7 +319,7 @@ const Experience = () => {
                   <Typography
                     color={(theme) =>
                       theme.palette.mode === "light"
-                        ? theme.palette.grey[600]
+                        ? theme.palette.grey[700]
                         : theme.palette.grey[300]
                     }
                   >
@@ -328,8 +328,8 @@ const Experience = () => {
                   <Typography
                     color={(theme) =>
                       theme.palette.mode === "light"
-                        ? theme.palette.grey[500]
-                        : theme.palette.grey[400]
+                        ? theme.palette.grey[700]
+                        : theme.palette.grey[300]
                     }
                   >
                     {item.location} &#8226; {item.type}
@@ -374,7 +374,7 @@ const Experience = () => {
                   <Typography
                     color={(theme) =>
                       theme.palette.mode === "light"
-                        ? theme.palette.grey[600]
+                        ? theme.palette.grey[700]
                         : theme.palette.grey[300]
                     }
                   >
@@ -386,8 +386,8 @@ const Experience = () => {
                   <Typography
                     color={(theme) =>
                       theme.palette.mode === "light"
-                        ? theme.palette.grey[500]
-                        : theme.palette.grey[400]
+                        ? theme.palette.grey[700]
+                        : theme.palette.grey[300]
                     }
                   >
                     {item.location} &#8226; {item.type}
