@@ -1,6 +1,6 @@
 import React from "react";
 
-const colorModeKey = process.env.REACT_APP_COLOR_MODE_KEY as string;
+const colorModeKey = 'color-mode';
 
 interface ProviderProps {
   children: React.ReactNode;
