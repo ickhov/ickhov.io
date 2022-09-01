@@ -150,10 +150,6 @@ const StyledAppBar = (props: AppBarProps) => {
               display: "flex",
               flexGrow: 1,
               alignItems: "center",
-              justifyContent: {
-                xs: "space-between",
-                md: "flex-start",
-              },
             }}
           >
             <StyledLink
@@ -173,7 +169,7 @@ const StyledAppBar = (props: AppBarProps) => {
             >
               {title}
             </StyledLink>
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <a
                 href="https://github.com/ickhov"
                 target="_blank"
@@ -267,13 +263,54 @@ const StyledAppBar = (props: AppBarProps) => {
                 </ListItem>
               ))}
               <ListItem
-                key="styled-color-mode-switch"
-                disablePadding
+                key="drawer-list-item-styled-color-mode-switch-github-linkedin"
                 sx={{
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                 }}
               >
+                <Box sx={{ display: "flex" }}>
+                  <a
+                    href="https://github.com/ickhov"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      fontSize: 0,
+                      textDecoration: "none",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    <img
+                      alt="Iev Khov's GitHub"
+                      src={
+                        theme.palette.mode === "light"
+                          ? GitHubLogoLight
+                          : GitHubLogoDark
+                      }
+                      height={35}
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/ickhov/"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      fontSize: 0,
+                      textDecoration: "none",
+                      marginLeft: "10px",
+                    }}
+                  >
+                    <img
+                      alt="Iev Khov's LinkedIn"
+                      src={
+                        theme.palette.mode === "light"
+                          ? LinkedInLogoLight
+                          : LinkedInLogoDark
+                      }
+                      height={35}
+                    />
+                  </a>
+                </Box>
                 <StyledColorModeSwitch
                   sx={{ m: 1 }}
                   checked={mode === "dark"}
