@@ -5,7 +5,7 @@ import {
   ThemeProvider,
 } from "@mui/material/styles";
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ColorModeProvider, useColorMode } from "./contexts/color-mode";
 import Main, { About, Experience, Home, Projects } from "./pages";
@@ -37,6 +37,7 @@ function AppWithColorMode() {
             <Route path="about" element={<About />} />
             <Route path="experience" element={<Experience />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="*" element={<Navigate to="" replace />} />
           </Route>
         </Routes>
       </BrowserRouter>
