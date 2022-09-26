@@ -87,8 +87,8 @@ const Experience = () => {
         location: "Davis, California",
         tasks: [
           "Wrote production-level Java and Swift code under supervision in an agile development team",
-          "Fixed bugs, implemented new features, and updated deprecated APIs in the UC Davis Mobile Android and iOS app",
-          "Designed and updated user interfaces (UIs) for the UC Davis Mobile Android and iOS app using the Material Design guidelines",
+          "Fixed bugs, implemented new features, and updated deprecated APIs in the UC Davis Mobile Android and iOS apps",
+          "Designed and updated user interfaces (UIs) for the UC Davis Mobile Android and iOS apps using the Material Design guidelines",
         ],
         type: EmploymentType.PartTime,
         company: "UC Davis Information and Educational Technology",

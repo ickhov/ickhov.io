@@ -18,6 +18,7 @@ import GitHubLogoLight from "../static/images/github-logo-light.png";
 import GitHubLogoDark from "../static/images/github-logo-dark.png";
 import LinkedInLogoLight from "../static/images/linkedin-logo-light.png";
 import LinkedInLogoDark from "../static/images/linkedin-logo-dark.png";
+import Resume from "../static/Khov_Iev_Resume.pdf";
 
 interface Menu {
   label: string;
@@ -31,6 +32,26 @@ interface AppBarProps extends React.PropsWithChildren {
 }
 
 const StyledLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  fontFamily: "Montserrat, sans-serif",
+  "&:hover": {
+    background: alpha(
+      theme.palette.secondary.main,
+      theme.palette.mode === "light" ? 0.2 : 0.4
+    ),
+  },
+  "&:active": {
+    color:
+      theme.palette.mode === "light"
+        ? theme.palette.secondary.main
+        : theme.palette.text.primary,
+  },
+  padding: theme.spacing(1.5),
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.text.primary,
+}));
+
+const StyledResumeLink = styled("a")(({ theme }) => ({
   textDecoration: "none",
   fontFamily: "Montserrat, sans-serif",
   "&:hover": {
@@ -218,6 +239,9 @@ const StyledAppBar = (props: AppBarProps) => {
                 {item.label}
               </StyledLink>
             ))}
+            <StyledResumeLink href={Resume} target="_blank" rel="noreferrer">
+              Resume
+            </StyledResumeLink>
             <StyledColorModeSwitch
               sx={{ m: 1 }}
               checked={mode === "dark"}
@@ -262,6 +286,21 @@ const StyledAppBar = (props: AppBarProps) => {
                   </StyledLink>
                 </ListItem>
               ))}
+              <ListItem disablePadding>
+                <StyledResumeLink
+                  href={Resume}
+                  target="_blank"
+                  rel="noreferrer"
+                  sx={{
+                    borderRadius: 0,
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
+                  Resume
+                </StyledResumeLink>
+              </ListItem>
+
               <ListItem
                 key="drawer-list-item-styled-color-mode-switch-github-linkedin"
                 sx={{
