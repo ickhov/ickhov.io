@@ -19,12 +19,13 @@ const About = () => {
   const items: IAbout[] = [
     {
       title: "Current Position",
-      description: "Software Engineer @ RL Liquidators",
+      description: "Software Engineer II @ College Board",
       summary: `
-        I'm currently working as a Software Engineer at RL Liquidators doing Full Stack development.
-        Previously, I worked as Junior Application Developer for UC Davis Information and Educational Technology
-        (IET) doing mobile development in Swift and Java. I did a lot of internships locally during college since
-        I didn't have a car to travel around. You can learn more about my past experiences in the Experience page.
+        I'm currently working as a Software Engineer II at College Board doing Full Stack development.
+        Previously, I worked as a Software Engineer at RL Liquidators doing Full Stack development and as a Junior 
+        Application Developer for UC Davis Information and Educational Technology (IET) doing mobile development in 
+        Swift and Java. I did a lot of internships locally during college since I didn't have a car to travel around. 
+        You can learn more about my past experiences in the Experience page.
       `,
     },
     {
