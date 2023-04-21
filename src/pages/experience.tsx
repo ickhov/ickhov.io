@@ -62,11 +62,22 @@ const Experience = () => {
   const data: IRawExperience[] = React.useMemo(
     () => [
       {
+        title: "Software Engineer II",
+        startMonth: Month.Nov,
+        startYear: 2022,
+        endMonth: "Present",
+        endYear: "Present",
+        location: "Sacramento, California (Remote)",
+        tasks: [],
+        type: EmploymentType.FullTime,
+        company: "College Board",
+      },
+      {
         title: "Software Engineer",
         startMonth: Month.Feb,
         startYear: 2021,
-        endMonth: "Present",
-        endYear: "Present",
+        endMonth: Month.Nov,
+        endYear: 2022,
         location: "Sacramento, California",
         tasks: [
           "Manage multiple frontend (React & Next.js) and backend (Node.js) projects written in TypeScript",
