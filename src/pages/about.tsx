@@ -31,7 +31,7 @@ const About = () => {
     {
       title: "Tech Stack",
       description:
-        "TypeScript, JavaScript, HTML5/CSS3, Python, Swift, Java, Node.js, React, Django, AWS, DigitalOcean, Nginx, Docker",
+        "TypeScript, JavaScript, HTML5/CSS3, Node.js, React, AWS, Amazon DynamoDB, PostgreSQL",
       summary: `
         I have work experience using TypeScript, JavaScript, Python, Swift, Java, Node.js, React, and Django.
         I can program in a lot of other languages but have the most experiences with JavaScript and TypeScript

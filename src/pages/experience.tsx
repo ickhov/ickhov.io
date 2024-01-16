@@ -9,7 +9,7 @@ import {
 } from "@mui/lab";
 import { Typography } from "@mui/material";
 import React from "react";
-import { GrowAnimation, FadeAnimation, StyledLayout } from "../components";
+import { FadeAnimation, GrowAnimation, StyledLayout } from "../components";
 
 enum Month {
   Jan,
@@ -62,13 +62,18 @@ const Experience = () => {
   const data: IRawExperience[] = React.useMemo(
     () => [
       {
-        title: "Software Engineer II",
+        title: "Engineer II",
         startMonth: Month.Nov,
         startYear: 2022,
         endMonth: "Present",
         endYear: "Present",
-        location: "Sacramento, California (Remote)",
-        tasks: [],
+        location: "Remote",
+        tasks: [
+          "Implement reusable user interface components in TypeScript & React used by other engineers",
+          "Develop RESTful and event sourcing APIs using Node.js, TypeScript, and AWS Lambdas",
+          "Refactor the existing codebase to improve readability and maintainability",
+          "Perform code reviews and provide meaningful feedback that aims towards catching remaining bugs and maintain code consistency",
+        ],
         type: EmploymentType.FullTime,
         company: "College Board",
       },
